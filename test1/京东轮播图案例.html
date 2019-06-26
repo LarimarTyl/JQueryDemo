@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <style>
+        div,ul,li,body {padding: 0px;margin: 0px;}
+        .right-arrow{position: absolute;top:120px; right:10px;}
+         .left-arrow{position: absolute;top:120px; left: 10px;}
+        .right-arrow span{display: inline-block; width: 26px;height: 26px;background-image: url("../test1/img/rt.png");background-color: gray}
+        .left-arrow span{display: inline-block; width: 26px;height: 26px;background-image: url("../test1/img/lt.png");background-color: gray}
+        .main {width: 500px;text-align: center;position: absolute; left: 35%;top: 200px;}
+        .main ul{position: relative; }
+        ul li img {width: 500px;}
+        .main ul li { display: none;text-align: center;position: absolute;list-style: none;}
+        .main .selected { display: block;   }
+    </style>
+</head>
+
+<body>
+        <div class="main">
+            <ul>
+                <li class="selected"><a href="#"><img src="../test1/img/1.jpg" alt="夜景1"></a></ li>
+                <li><a href="#"><img src="../test1/img/2.jpg" alt="夜景2"></a></li>
+                <li><a href="#"><img src="../test1/img/3.jpg" alt="夜景3"></a></li>
+                <li><a href="#"><img src="../test1/img/4.jpg" alt="夜景4"></a></li>
+                <li><a href="#"><img src="../test1/img/5.jpg" alt="夜景5"></a></li>
+                <li><a href="#"><img src="../test1/img/6.jpg" alt="夜景6"></a></li>
+                <li><a href="#"><img src="../test1/img/7.jpg" alt="夜景7"></a></li>
+                <li><a href="#"><img src="../test1/img/8.jpg" alt="夜景8"></a></li>
+            </ul>
+            <a class="left-arrow" href="#"><span class="arrow"></span></a>
+            <a class="right-arrow" href="#"><span class="arrow"></span></a>
+        </div>
+</body>
+<script src="../jquery-3.4.1.js"></script>
+<script>
+    $(function () {
+        var count= 0;
+        $(".right-arrow").click(function(){
+            count++;
+            if(count==$("ul li").length){
+                count=0
+            }
+            $(".main li").eq(count).fadeIn().siblings("li").fadeOut();
+        });
+        $(".left-arrow").click(function(){
+            
+            if(count==0){
+                count=8
+            }count--;
+            $(".main li").eq(count).fadeIn().siblings("li").fadeOut();
+        })
+    });
+</script>
+</html>

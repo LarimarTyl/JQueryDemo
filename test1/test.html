@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <style>
+        div {
+            height: 200px;
+            margin-bottom: 10px;
+            background-color: aqua;
+            display: none;
+        }
+    </style>
+</head>
+
+<body>
+
+    <input type="button" value="展示" id="btn1">
+    <input type="button" value="设置内容" id="btn2">
+    <div>
+    </div>
+
+    <div>
+    </div>
+
+    <div>
+    </div>
+
+    <div>
+    </div>
+
+
+</body>
+<!-- <script>
+    var btn1=document.getElementById("btn1")
+    var btn2=document.getElementById("btn2")
+    var divs = document.getElementsByTagName("div")
+
+    btn1.onclick=function(){
+        for(var i=0;i<=divs.length;i++){
+            divs[i].style.display="block"
+        }
+    }
+    btn2.onclick=function(){
+        for(var i=0;i<=divs.length;i++){
+            divs[i].innerText="我是内容"
+        }
+    }
+</script> -->
+<script src="../jquery-3.4.1.js"></script>
+<script>
+    $(document).ready(function () {
+        $("#btn1").click(function () {
+            $("div").show(3000).toggle();
+        })
+        $("#btn2").click(function () {
+            $("div").text("这是内容").toggle();
+        })
+    })
+</script>
+
+</html>

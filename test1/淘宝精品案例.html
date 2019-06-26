@@ -1,0 +1,142 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            font-size: 12px;
+        }
+
+        ul {
+            list-style: none;
+        }
+
+        a {
+            text-decoration: none;
+        }
+
+        #wrap {
+
+
+            width: 600px;
+            /* display: block; */
+            position: relative;
+            left: 50%;
+            top: 50%;
+            margin-top: 10%;
+            margin-left: -20%;
+        }
+        #wrap #ulall{
+            border: 2px solid black;
+            height:220px ;
+            width: 500px;
+            background-color: black
+        }
+        #wrap #ulall ul {
+            float: left;
+        }
+
+        #left li a,
+        #right li a {
+            display: block;
+            width: 48px;
+            height: 27px;
+            border-bottom: 1px soli pink;
+            line-height: 27px;
+            text-align: center;
+            color:azure;
+        }
+
+        #left li a:hover,
+        #right li a:hover {
+            background-color:black;
+        }
+
+        #center {
+            margin-top: 10px;
+            border-left: 1px solid pink;
+            border-right: 1px solid pink;
+        }
+
+        img {
+            height: 200px;
+            width: 400px;
+        }
+        #center li {
+            display: none;
+        }
+        #center #li1{
+            display:block;
+        }
+    </style>
+    <script src="../jquery-3.4.1.js"></script>
+    <script>
+        $(function(){
+            $("#left>li").mouseenter(function(){
+                // console.log($(this).index())
+                var index = $(this).index()
+                $("#center>li:eq("+index+")").show().siblings().hide()
+            });
+            $("#right>li").mouseenter(function(){
+                    var index = $(this).index()+8;
+                    $("#center>li:eq("+index+")").show().siblings().hide()
+                })
+            })
+    </script>
+</head>
+
+<body>
+    <div id="wrap">
+        <ul id="ulall">
+        <ul id="left">
+            <li><a href="">夜景1</a></li>
+            <li><a href="">夜景2</a></li>
+            <li><a href="">夜景3</a></li>
+            <li><a href="">夜景4</a></li>
+            <li><a href="">夜景5</a></li>
+            <li><a href="">夜景6</a></li>
+            <li><a href="">夜景7</a></li>
+            <li><a href="">夜景8</a></li>
+           
+        </ul>
+        <ul id="center">
+
+            <li id="li1"><img id="img1" display="block" src="c:/Users/Larimar/Pictures/壁纸/夜/115-6978-1800x1200-72Q50.jpg" alt=""></li>
+            <li><img src="c:/Users/Larimar/Pictures/壁纸/夜/1357390437-3795259759.jpg" alt=""></li>
+            <li><img src="c:/Users/Larimar/Pictures/壁纸/夜/171846.jpg" alt=""></li>
+            <li><img src="c:/Users/Larimar/Pictures/壁纸/夜/17652.jpg" alt=""></li>
+            <li><img src="c:/Users/Larimar/Pictures/壁纸/夜/17670.jpg" alt=""></li>
+            <li><img src="c:/Users/Larimar/Pictures/壁纸/夜/207291.jpg" alt=""></li>
+            <li><img src="c:/Users/Larimar/Pictures/壁纸/夜/64477.jpg" alt=""></li>
+            <li><img src="c:/Users/Larimar/Pictures/壁纸/夜/hong-kong-victoria-peak.jpg" alt=""></li>
+            <li><img src="c:/Users/Larimar/Pictures/壁纸/夜/thanh-pho-venice-543f85f3c4f3c.jpg" alt=""></li>
+            <li><img src="c:/Users/Larimar/Pictures/壁纸/夜/thumb-1920-805721.jpg" alt=""></li>
+            <li><img src="c:/Users/Larimar/Pictures/壁纸/夜/wallpaper2you_483371.jpg" alt=""></li>
+            <li><img src="c:/Users/Larimar/Pictures/壁纸/夜/stock-photo-95616893.jpg" alt=""></li>
+            <li><img src="c:/Users/Larimar/Pictures/壁纸/夜/maxresdefault.jpg" alt=""></li>
+            <li><img src="c:/Users/Larimar/Pictures/壁纸/夜/DSC100298557.jpg" alt=""></li>
+            <li><img src="c:/Users/Larimar/Pictures/壁纸/夜/4504905-skyline-wallpapers.jpg" alt=""></li>
+            <li><img src="c:/Users/Larimar/Pictures/壁纸/夜/3983989-night-pictures.jpg" alt=""></li>
+        </ul>
+        <ul id="right">
+            <li><a href="">夜景9</a></li>
+            <li><a href="">夜景10</a></li>
+            <li><a href="">夜景11</a></li>
+            <li><a href="">夜景12</a></li>
+            <li><a href="">夜景13</a></li>
+            <li><a href="">夜景14</a></li>
+            <li><a href="">夜景15</a></li>
+            <li><a href="">夜景16</a></li>
+
+        </ul>
+    </ul>
+    </div>
+</body>
+
+</html>

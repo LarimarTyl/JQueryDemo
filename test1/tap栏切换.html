@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<style> 
+ul,li,body{margin: 0;padding: 0;color: white}
+    ul{width: 700px;; font-weight:bold}
+    li{ height: 50px;padding:0 20px; background-color:rgb(59, 194, 180);line-height: 50px;text-align: center}
+    ul li {list-style: none;float: left}
+    .actived {background-color:darkcyan}
+    .main{width: 540px;height: 400px;display: none}
+    .main img{width: 535px;}
+    .selected{display: block}
+    </style>
+<body>
+    <h1>我的主页</h1>
+    <ul>
+        <li class="actived">主页</li>
+        <li>身边团购</li>
+        <li>美食</li>
+        <li>电影</li>
+        <li>KTV</li>
+        <li>酒店</li>
+        <li>购物</li>
+    </ul>
+    <div class="main selected">
+        <img src="../test1/img/1.jpg" alt="">
+    </div>
+    <div class="main">
+        <img src="../test1/img/2.jpg" alt="">
+    </div>
+    <div class="main">
+        <img src="../test1/img/3.jpg" alt="">
+    </div>
+    <div class="main">
+        <img src="../test1/img/4.jpg" alt="">
+    </div>
+    <div class="main">
+        <img src="../test1/img/5.jpg" alt="">
+    </div>
+    <div class="main">
+        <img src="../test1/img/6.jpg" alt="">
+    </div>
+    <div class="main">
+        <img src="../test1/img/7.jpg" alt="">
+    </div>
+</body>
+<script src="../jquery-3.4.1.js"></script>
+<script>
+$(function () {
+    $("ul>li").mouseenter(function(){
+        $(this).addClass("actived").siblings().removeClass("actived");
+        var index = $(this).index();
+        $(".main").eq(index).addClass("selected").siblings().removeClass("selected");
+    })
+});
+</script>
+</html>

@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <style>
+        .wrap {
+            height: 980px;
+            display: block;
+            background-color: black;
+        }
+        .wrap div{
+            position: relative;
+            width: 700px;
+            height: 400px;
+            left: 40%;
+            top: 40%;
+            margin-top: -200px;
+            margin-left: -250px;
+            border: 1px solid;
+        }
+        .wrap ul {
+            float: left;
+            width: 680px;
+        }
+        ul li {
+            float: left;
+            flex: 1;
+            width: 220px;
+        }
+
+        .wrap ul li img {
+            width: 200px;
+            height: 160px;
+           
+        }
+    </style>
+    <script src="../jquery-3.4.1.js"></script>
+    <script>
+    $(function(){
+        $(".wrap>div>ul>li").mouseenter(function(){
+            $(this).css("opacity","1").siblings().css("opacity","0.4")
+        });
+        $(".wrap>div>ul>li").mouseleave(function(){
+            $(this).css("opacity","1").siblings().css("opacity","1")
+        });
+        
+    })
+    </script>
+</head>
+
+<body>
+    <div class="wrap">
+        <div>
+        <ul>
+            <li> <img src="c:/Users/Larimar/Pictures/Camera Roll/1.jpg" alt=""></li>
+            <li> <img src="c:/Users/Larimar/Pictures/Camera Roll/2.jpg" alt=""></li>
+            <li> <img src="c:/Users/Larimar/Pictures/Camera Roll/3.jpg" alt=""></li>
+            <li> <img src="c:/Users/Larimar/Pictures/Camera Roll/4.jpg" alt=""></li>
+            <li> <img src="c:/Users/Larimar/Pictures/Camera Roll/5.jpg" alt=""></li>
+            <li> <img src="c:/Users/Larimar/Pictures/Camera Roll/6.jpg" alt=""></li>
+        </ul>
+    </div>
+    </div>
+</body>
+
+</html>

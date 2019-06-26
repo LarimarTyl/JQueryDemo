@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<style>
+.mainP{width: 1050px;}
+ul,li,a{padding: 0;margin: 0px;}
+ul li{list-style:none;float: left;height: 400px; width: 150px;background-size: cover}
+</style>
+<body>
+    <div class="main">
+    <ul>
+      <li></li>
+      <li></li>
+      <li></li>
+      <li></li>
+      <li></li>
+      <li></li>
+      <li></li>
+    </ul>
+    <audio src="mp3/C.MP3"></audio>
+    <audio src="mp3/D.MP3"></audio>
+    <audio src="mp3/E.MP3"></audio>
+    <audio src="mp3/F.MP3"></audio>
+    <audio src="mp3/G.MP3"></audio>
+    <audio src="mp3/A.MP3"></audio>
+    <audio src="mp3/B.MP3"></audio>
+</div>
+</body>
+<script src="../jquery-3.4.1.js"></script>
+<script>
+$(function () {
+    var $li = $(".main li");
+    // $(".main li").css("backgroundImage","url(../test1/img/2.jpg)")
+    for(var i = 0 ;i<$li.length;i++){
+        $li.eq(i).css("backgroundImage","url(../test1/img/"+(i+1)+".jpg)")
+    }
+    $li.mouseenter(function(){
+        $(this).stop().animate({width:570}).siblings().stop().animate({width:80})
+        var index = $(this).index();
+        console.log(index);
+        $("audio").get(index).load();
+        $("audio").get(index).play();
+    }).mouseleave(function(){
+        $li.stop().animate({width:150});
+    })
+});
+</script>
+</html>

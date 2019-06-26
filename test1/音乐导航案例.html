@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<style>
+    .main{position: relative; top: 100px;left: 25%;width:700px;height: 70px; background-color: black;}
+    ul{margin-left: 10px;}
+    ul,li,body,a,span{padding: 0;margin: 0;text-decoration: none}
+    .main ul li a{width: 100%;height: 100%;z-index:2;}
+    .main li{ z-index: 1;position: relative; overflow: hidden;  list-style: none;float: left;width: 100px; height: 30px; line-height: 30px;padding: 20px 0px;color: blue; font-weight: bold; text-align: center;}
+span{display:block; position: absolute;top:70px;width:100%;height:100%;background-color: yellow;z-index: -2;}
+</style>
+<body>
+    <div class="main">
+        <ul>
+            <li><a href="#">标题一</a><span></span></li>
+            <li><a href="#">标题二</a><span></span></li>
+            <li><a href="#">标题三</a><span></span></li>
+            <li><a href="#">标题四</a><span></span></li>
+            <li><a href="#">标题五</a><span></span></li>
+            <li><a href="#">标题六</a><span></span></li>
+            <li><a href="#">标题七</a><span></span></li>
+        </ul>
+        <audio src="mp3/C.MP3"></audio>
+        <audio src="mp3/D.MP3"></audio>
+        <audio src="mp3/E.MP3"></audio>
+        <audio src="mp3/F.MP3"></audio>
+        <audio src="mp3/G.MP3"></audio>
+        <audio src="mp3/A.MP3"></audio>
+        <audio src="mp3/B.MP3"></audio>
+    </div>
+</body>
+<script src="../jquery-3.4.1.js"></script>
+<script>
+$(function () {
+    $(".main li").mouseenter(function(){
+        $(this).children("span").stop().animate({top:0})
+    var index = $(this).index();
+    $("audio").get(index).load();
+    $("audio").get(index).play();
+    }).mouseleave(function(){
+        $(this).children("span").stop().animate({top:70})
+    })
+});
+</script>
+</html>

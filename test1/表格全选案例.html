@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+    <p class="cball"> <input type="checkbox" id="cbAll"> 全选</p>
+    <div class="check">
+    <p> <input type="checkbox"> 鸡蛋</p>
+    <p> <input type="checkbox"> 牛奶</p>
+    <p> <input type="checkbox"> 包子</p>
+    <p> <input type="checkbox"> 煎饼</p>
+    <p> <input type="checkbox"> 豆浆</p>
+</div>
+</body>
+<script src="../jquery-3.4.1.js"></script>
+<script>
+$(function () {
+    $("#cbAll").click(function(){
+        $(".check input").prop("checked",$(this).prop("checked"));
+    })
+    $(".check input").click(function(){
+        var allLength = $(".check input").length;
+        var checkedLength=$(".check input:checked").length;
+        if(checkedLength==allLength){
+            $("#cbAll").prop("checked",true)
+        }else { $("#cbAll").prop("checked",false)}
+    })
+});
+</script>
+</html>

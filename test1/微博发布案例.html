@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<style>
+ul,li,body{margin: 0;padding: 0}
+ul{list-style: none;width: 450px;padding-left: 80px}
+ul li{line-height: 25px;border-bottom: 1px dashed #cccccc}
+.box{width: 600px;margin: 100px auto;border: 1px solid black;padding: 30px}
+textarea{width: 450px;height: 150px;outline: none;resize: none}
+
+</style>
+<body>
+    <div class="box" id="weibo">
+        <span>微博发布</span>
+        <textarea name="" id="txt" cols="30" rows="10"> </textarea>
+        <button id="btn">发布</button>
+        <ul id="ul">
+
+        </ul>
+
+    </div>
+</body>
+<script src="../jquery-3.4.1.js"></script>
+<script>
+$(function () {
+    $("#btn").click(function(){
+       if($("#txt").val().trim().length==0)
+       { return;}
+       $("<li></li>").text($("#txt").val()).prependTo("#ul");
+       $("#txt").val("");
+    })
+});
+</script>
+</html>
