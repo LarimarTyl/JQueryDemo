@@ -46,6 +46,25 @@ $(function () {
     }).mouseleave(function(){
         $(this).children("span").stop().animate({top:70})
     })
+
+    var flag = true;//定义一个节流阀控制 按键和弹起只执行一次 交替执行
+    $(document).on("keydown",function(e){
+        if(flag){
+        flag=false;
+        var code = e.keyCode;
+        if(code>=49&&code<=55){
+            $(".main li").eq(code-49).mouseenter();
+            console.log(code);
+        }}
+    })
+    $(document).on("keyup",function(e){
+        flag=true;//释放节流阀
+        var code = e.keyCode;
+        if(code>=49&&code<=55){
+            $(".main li").eq(code-49).mouseleave();
+            console.log(code);
+        }
+    })
 });
 </script>
 </html>
