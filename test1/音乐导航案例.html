@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -8,13 +9,61 @@
 </head>
 <!-- 音乐导航栏案例 -->
 <style>
-    .main{position: relative; top: 100px;left: 25%;width:700px;height: 70px; background-color: black;}
-    ul{margin-left: 10px;}
-    ul,li,body,a,span{padding: 0;margin: 0;text-decoration: none}
-    .main ul li a{width: 100%;height: 100%;z-index:2;}
-    .main li{ z-index: 1;position: relative; overflow: hidden;  list-style: none;float: left;width: 100px; height: 30px; line-height: 30px;padding: 20px 0px;color: blue; font-weight: bold; text-align: center;}
-span{display:block; position: absolute;top:70px;width:100%;height:100%;background-color: yellow;z-index: -2;}
+    .main {
+        position: relative;
+        top: 100px;
+        left: 25%;
+        width: 700px;
+        height: 70px;
+        background-color: black;
+    }
+
+    ul {
+        margin-left: 10px;
+    }
+
+    ul,
+    li,
+    body,
+    a,
+    span {
+        padding: 0;
+        margin: 0;
+        text-decoration: none
+    }
+
+    .main ul li a {
+        width: 100%;
+        height: 100%;
+        z-index: 2;
+    }
+
+    .main li {
+        z-index: 1;
+        position: relative;
+        overflow: hidden;
+        list-style: none;
+        float: left;
+        width: 100px;
+        height: 30px;
+        line-height: 30px;
+        padding: 20px 0px;
+        color: blue;
+        font-weight: bold;
+        text-align: center;
+    }
+
+    span {
+        display: block;
+        position: absolute;
+        top: 70px;
+        width: 100%;
+        height: 100%;
+        background-color: yellow;
+        z-index: -2;
+    }
 </style>
+
 <body>
     <div class="main">
         <ul>
@@ -37,34 +86,33 @@ span{display:block; position: absolute;top:70px;width:100%;height:100%;backgroun
 </body>
 <script src="../jquery-3.4.1.js"></script>
 <script>
-$(function () {
-    $(".main li").mouseenter(function(){
-        $(this).children("span").stop().animate({top:0})
-    var index = $(this).index();
-    $("audio").get(index).load();
-    $("audio").get(index).play();
-    }).mouseleave(function(){
-        $(this).children("span").stop().animate({top:70})
-    })
-
-    var flag = true;//定义一个节流阀控制 按键和弹起只执行一次 交替执行
-    $(document).on("keydown",function(e){
-        if(flag){
-        flag=false;
-        var code = e.keyCode;
-        if(code>=49&&code<=55){
-            $(".main li").eq(code-49).mouseenter();
-            console.log(code);
-        }}
-    })
-    $(document).on("keyup",function(e){
-        flag=true;//释放节流阀
-        var code = e.keyCode;
-        if(code>=49&&code<=55){
-            $(".main li").eq(code-49).mouseleave();
-            console.log(code);
-        }
-    })
-});
+    $(function () {
+        $(".main li").mouseenter(function () {
+            $(this).children("span").stop().animate({ top: 0 })
+            var index = $(this).index();
+            $("audio").get(index).load();
+            $("audio").get(index).play();
+        }).mouseleave(function () {
+            $(this).children("span").stop().animate({ top: 70 })
+        })
+        var flag = true;//定义一个节流阀控制 按键和弹起只执行一次 交替执行
+        $(document).on("keydown", function (e) {
+            if (flag) {
+                flag = false;
+                var code = e.keyCode;
+                if (code >= 49 && code <= 55) {
+                    $(".main li").eq(code - 49).mouseenter();
+                }
+            }
+        })
+        $(document).on("keyup", function (e) {
+            flag = true;//释放节流阀
+            var code = e.keyCode;
+            if (code >= 49 && code <= 55) {
+                $(".main li").eq(code - 49).mouseleave();
+            }
+        })
+    });
 </script>
+
 </html>
