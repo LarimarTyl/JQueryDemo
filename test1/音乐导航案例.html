@@ -46,6 +46,20 @@ $(function () {
     }).mouseleave(function(){
         $(this).children("span").stop().animate({top:70})
     })
+    $(document).on("keydown",function(e){
+        var code = e.keyCode;
+        if(code>=49&&code<=55){
+            $(".main li").eq(code-49).mouseenter();
+            console.log(code);
+        }
+    })
+    $(document).on("keyup",function(e){
+        var code = e.keyCode;
+        if(code>=49&&code<=55){
+            $(".main li").eq(code-49).mouseleave();
+            console.log(code);
+        }
+    })
 });
 </script>
 </html>
